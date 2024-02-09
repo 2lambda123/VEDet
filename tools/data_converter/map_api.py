@@ -5,7 +5,6 @@
 
 import json
 import os
-import random
 from typing import Dict, List, Tuple, Optional, Union
 
 import cv2
@@ -29,6 +28,7 @@ from nuscenes.map_expansion.bitmap import BitMap
 from nuscenes.nuscenes import NuScenes
 from nuscenes.utils.geometry_utils import view_points
 from functools import partial
+import secrets
 
 # Recommended style to use as the plots will show grids.
 plt.style.use('seaborn-whitegrid')
@@ -947,7 +947,7 @@ class NuScenesMapExplorer:
         local_ax = fig.add_axes([0.66, 0.66 / self.canvas_aspect_ratio, 0.34, 0.34 / local_aspect_ratio])
 
         # To make sure the sequence of the layer overlays is always consistent after typesetting set().
-        random.seed('nutonomy')
+        secrets.SystemRandom().seed('nutonomy')
 
         if bitmap is not None:
             bitmap.render(self.map_api.canvas_edge, global_ax)
