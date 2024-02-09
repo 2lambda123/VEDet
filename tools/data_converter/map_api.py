@@ -1238,6 +1238,8 @@ class NuScenesMapExplorer:
     @staticmethod
     def points_transform(points, poserecord, cs_record, cam_intrinsic, im_size, near_plane=1e-8,
                          render_behind_cam=True, render_outside_im=True):
+        """"""
+        
         points = np.vstack((points, np.zeros((1, points.shape[1]))))
 
         # Transform into the ego vehicle frame for the timestamp of the image.
